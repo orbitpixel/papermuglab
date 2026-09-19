@@ -1,4 +1,4 @@
-name: Deploy to Shared Hosting
+name: Deploy to Paper Mug Lab
 
 on:
   push:
@@ -7,19 +7,19 @@ on:
 
 jobs:
   deploy:
-    name: FTP Deployment
+    name: Deploy via FTP
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy to server
+      - name: Deploy to Shared Hosting
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ${{ secrets.ftp.papermuglab.com }}
-          username: ${{ secrets.papermug }}
-          password: ${{ secrets.5PHa$2@0$u }}
-          server-dir: ${{ secrets./public_html/ }}
+          server: papermuglab.com
+          username: "papermug"
+          password: "5PHa$2@0$u"
           protocol: ftps
           port: 21
+          server-dir: /public_html/
